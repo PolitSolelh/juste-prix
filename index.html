@@ -5,18 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="/script.js"></script>
-    <link href="/main.css">
+    <link href="main.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
-    <div id="difficulty">Sélectionnez une difficulté</div>
-    <button id="easy" onclick="choixDifficulte(50)">Facile</button>
-    <button id="normal" onclick="choixDifficulte(100)">Moyen</button>
-    <button id="hard" onclick="choixDifficulte(1000)">Difficile</button>
-    <button onclick="reset()">Reset</button>
-    <input id="guess" type="number" disabled></input>
-    <button id="send" onclick="humanGuess()" disabled>Envoyer</button>
-    <p id="secret"></p>
-    <p id="prix"></p>
-    <p id="tentatives"></p>
+    <main class="flex flex-col align-center items-center w-2/3 h-1/2 bg-blue-700 pt-10 pb-10">
+        <div id="difficulty" class="text-3xl text-center font-coolvetica">Sélectionnez une difficulté</div>
+        
+        <section class="flex flex-row justify-evenly p-3">
+            <button id="easy" onclick="choixDifficulte(50)" style="display:flex" class="bg-blue-300 hover:bg-blue-500 disabled:hover:bg-blue-300 rounded-lg p-1 m-1">Facile</button>
+            <button id="normal" onclick="choixDifficulte(100)" style="display:flex" class="bg-blue-300 hover:bg-blue-500 disabled:hover:bg-blue-300 rounded-lg p-1 m-1">Moyen</button>
+            <button id="hard" onclick="choixDifficulte(1000)" style="display:flex" class="bg-blue-300 hover:bg-blue-500 disabled:hover:bg-blue-300 rounded-lg p-1 m-1">Difficile</button>
+            <button onclick="reset()" style="display:flex" class="bg-blue-300 hover:bg-blue-500 disabled:hover:bg-blue-300 rounded-lg p-1 m-1">Reset</button>
+            <input id="guess" type="number" style="display:none" class="flex bg-blue-300 hover:bg-blue-500 disabled:hover:bg-blue-300 rounded-lg p-1 m-1"></input>
+            <button id="send" onclick="humanGuess()" style="display:none" class="flex bg-blue-300 hover:bg-blue-500 disabled:hover:bg-blue-300 rounded-lg p-1 m-1">Envoyer</button>
+        </section>
+
+        <section class="h-16">
+            <div id="prix"></div>
+            <div id="tentatives"></div>
+        </section>
+    </main>
 </body>
 </html>

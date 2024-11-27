@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@font-face{
+    font-family: AgencyFB;
+    src: url(./fonts/AGENCYB.TTF);
+}
+
+@font-face{
+    font-family: Coolvetica;
+    src: url(./fonts/coolveticarg.otf) format("opentype");
+}
+
+@font-face{
+    font-family: Lato;
+    src: url(./fonts/Lato-Regular.ttf);
+}
+
+body{
+    display: flex;
+    background-color: #111;
+    color: #fff;
+    margin: 0px;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Lato', sans serif;
+}
