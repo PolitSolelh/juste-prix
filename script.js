@@ -1,11 +1,5 @@
-// créer trois boutons pour chaque mode de difficulté : 
-// Facile (1 à 50), Moyen (1 à 100) et Difficile (1 à 1000) avec une variable "choixDifficulté"
-// générer un nombre secret par l'ordinateur
-// permettre à un joueur de le deviner
-// affiche si le guess est supérieur ou inférieur au juste prix
-// en 15 essais maximum.
-
 let tries = 0;
+let justePrix = 0;
 
 function choixDifficulte(max) {
     if(max === 50) 
@@ -33,14 +27,54 @@ function choixDifficulte(max) {
     document.getElementById("easy").disabled = true;
     document.getElementById("normal").disabled = true;
     document.getElementById("hard").disabled = true;
+    document.getElementById("guess").disabled = false;
+    document.getElementById("send").disabled = false;
 }
 
 function reset() {
     document.getElementById("easy").disabled = false;
     document.getElementById("normal").disabled = false;
     document.getElementById("hard").disabled = false;
-    document.getElementById("difficulty").innerHTML = "Sélectionnez une difficulté"
+    document.getElementById("guess").disabled = true;
+    document.getElementById("send").disabled = true;
+    document.getElementById("difficulty").innerHTML = "Sélectionnez une difficulté";
+    tries = 0;
     justePrix = 0;
 }
 
-console.log(max);
+function humanGuess() {
+    let guess = document.getElementById("guess").value;
+    console.log(guess);
+    console.log(justePrix);
+
+    if(tries < 14) {
+        if(guess > justePrix) 
+        {
+        tries++;
+        document.getElementById("tentatives").innerHTML = `C'est votre essai numéro ${tries}`
+        document.getElementById("prix").innerHTML = "C'est moins";
+        }
+        else if(guess < justePrix) 
+        {
+        tries++;
+        document.getElementById("tentatives").innerHTML = `C'est votre essai numéro ${tries}`
+        document.getElementById("prix").innerHTML = "C'est plus";
+
+        }
+        else if(guess = justePrix) 
+        {
+        tries++;
+        document.getElementById("tentatives").innerHTML = "";
+        document.getElementById("prix").innerHTML = `Vous avez gagné en ${tries} essais ! Le juste prix est : ${justePrix}`;
+        document.getElementById("guess").disabled = true;
+        document.getElementById("send").disabled = true;
+
+        }
+    }
+    else {
+        tries++;
+        document.getElementById("tentatives").innerHTML = `C'est votre essai numéro ${tries}`
+        document.getElementById("prix").innerHTML = `Vous avez perdu. Le juste prix était ${justePrix}`;
+
+    }
+}
